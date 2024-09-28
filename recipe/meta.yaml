@@ -20,9 +20,10 @@ requirements:
   host:
     - python >=3.6
     - pip
+    - setuptools
   run:
     - python >=3.6
-    - ipyflow-core ==0.0.200
+    - ipyflow-core =={{ version }}
     - jupyter
     - jupyterlab >=3.0
     - nbclassic
