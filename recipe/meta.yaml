@@ -18,11 +18,11 @@ build:
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - pip
     - setuptools
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - ipyflow-core =={{ version }}
     - jupyter
     - jupyterlab >=3.0
@@ -37,6 +37,7 @@ test:
     - ipyflow --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/ipyflow/ipyflow
