@@ -1,13 +1,13 @@
 {% set name = "ipyflow" %}
-{% set version = "0.0.204" %}
+{% set version = "0.0.206" %}
 
 package:
   name: {{ name|lower }}
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/ipyflow-{{ version }}.tar.gz
-  sha256: ab6f854b135cdfaaab34e12927ded42821bdf72a92bb10a64bec403c8bae8ae6
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/ipyflow-{{ version }}.tar.gz
+  sha256: cd0c7b9a99c04fe8227ae8fc35976b063d2c0b5d73ff99cfd62601e5975363fa
 
 build:
   entry_points:
@@ -18,11 +18,11 @@ build:
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - pip
     - setuptools
   run:
-    - python >=3.6
+    - python >={{ python_min }}
     - ipyflow-core =={{ version }}
     - jupyter
     - jupyterlab >=3.0
@@ -37,6 +37,7 @@ test:
     - ipyflow --help
   requires:
     - pip
+    - python {{ python_min }}
 
 about:
   home: https://github.com/ipyflow/ipyflow
