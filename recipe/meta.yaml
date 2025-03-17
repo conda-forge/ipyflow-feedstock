@@ -1,5 +1,5 @@
 {% set name = "ipyflow" %}
-{% set version = "0.0.207" %}
+{% set version = "0.0.209" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/ipyflow-{{ version }}.tar.gz
-  sha256: 1e63a0c76ee29cfe36c144d86a25f3a281296c90506170c9abe777493663857a
+  sha256: 45ebced3cb5a01fb500835854ef0943cb8dcdef08cbff1c698d5c5770618225b
 
 build:
   entry_points:
