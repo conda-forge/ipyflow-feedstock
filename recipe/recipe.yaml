@@ -1,0 +1,56 @@
+schema_version: 1
+
+context:
+  name: ipyflow
+  version: 0.0.215
+
+package:
+  name: ${{ name|lower }}
+  version: ${{ version }}
+
+source:
+  url: https://pypi.org/packages/source/${{ name[0] }}/${{ name }}/ipyflow-${{ version }}.tar.gz
+  sha256: 4a57f0968ef2eb1a8fd3c40b196d45afedeb1c5cc84f257691b986992e6ef977
+
+build:
+  number: 0
+  noarch: python
+  script: ${{ PYTHON }} -m pip install . -vv --no-deps --no-build-isolation
+  python:
+    entry_points:
+      - ipyflow = ipyflow:main
+
+requirements:
+  host:
+    - python ${{ python_min }}.*
+    - pip
+    - setuptools
+  run:
+    - python >=${{ python_min }}
+    - ipyflow-core ==${{ version }}
+    - jupyter
+    - jupyterlab >=3.0
+    - nbclassic
+    - notebook
+
+tests:
+  - python:
+      imports:
+        - ipyflow
+      pip_check: true
+      python_version: ${{ python_min }}.*
+  - requirements:
+      run:
+        - python ${{ python_min }}.*
+    script:
+      - ipyflow --help
+
+about:
+  summary: A reactive Python kernel for Jupyter notebooks.
+  license: BSD-3-Clause
+  license_file: LICENSE.txt
+  homepage: https://github.com/ipyflow/ipyflow
+
+extra:
+  recipe-maintainers:
+    - thewchan
