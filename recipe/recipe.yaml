@@ -24,7 +24,8 @@ requirements:
   host:
     - python ${{ python_min }}.*
     - pip
-    - setuptools
+    - setuptools >=48
+    - wheel >=0.30.0
   run:
     - python >=${{ python_min }}
     - ipyflow-core ==${{ version }}
@@ -38,7 +39,9 @@ tests:
       imports:
         - ipyflow
       pip_check: true
-      python_version: ${{ python_min }}.*
+      python_version:
+        - ${{ python_min }}.*
+        - "*"
   - requirements:
       run:
         - python ${{ python_min }}.*
