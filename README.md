@@ -40,31 +40,73 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `ipyflow` can be installed with `conda`:
+How to use
+----------
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda install ipyflow
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba install ipyflow
 ```
 
-It is possible to list all of the versions of `ipyflow` available on your platform with `conda`:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+# for adding to your local project
+pixi add ipyflow
+# for installing globally
+pixi global install ipyflow
+```
+
+</details>
+
+Search package versions
+-----------------------
+
+It is possible to list all of the versions of `ipyflow` available on your platform:
+
+<details>
+<summary>With conda</summary>
 
 ```
 conda search ipyflow --channel conda-forge
 ```
 
-or with `mamba`:
+</details>
+
+<details>
+<summary>With mamba</summary>
 
 ```
 mamba search ipyflow --channel conda-forge
 ```
 
-Alternatively, `mamba repoquery` may provide more information:
+</details>
+
+<details>
+<summary>With pixi</summary>
+
+```
+pixi search ipyflow --channel conda-forge
+```
+
+</details>
+
+<details>
+<summary>With mamba repoquery, which may provide more information</summary>
 
 ```
 # Search all versions available on your platform:
@@ -76,6 +118,8 @@ mamba repoquery whoneeds ipyflow --channel conda-forge
 # List dependencies of `ipyflow`:
 mamba repoquery depends ipyflow --channel conda-forge
 ```
+
+</details>
 
 
 About conda-forge
